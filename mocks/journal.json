@@ -1,0 +1,28 @@
+[
+    {
+        "mood": "Happy",
+        "subject": "Family Reunion",
+        "negative": false,
+        "summary": "Had a great time catching up with relatives.",
+        "color": "#FFD700",
+        "sentimentScore": 8
+    },
+
+    {
+        "mood": "sad",
+        "subject": "Family Reunion",
+        "negative": false,
+        "summary": "Had a great time catching up with relatives.",
+        "color": "#FFD700",
+        "sentimentScore": 8
+    },
+
+    {
+        "mood": "neutral",
+        "subject": "Family Reunion",
+        "negative": false,
+        "summary": "Had a great time catching up with relatives.",
+        "color": "#FFD700",
+        "sentimentScore": 8
+    }
+]
