@@ -6,4 +6,5 @@ export interface IAnalysis {
   color: string;
   summary:string;
   id:string;
+  tip:String;
 }

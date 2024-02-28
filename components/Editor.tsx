@@ -7,13 +7,19 @@ import {
   View,
 } from 'react-native';
 import {useCreateAnalysis} from '../hooks/useCreateAnalyze';
-import {useState} from 'react';
+import {FC, useEffect, useState} from 'react';
 import {colors} from '../styles/colors';
 import {LoadingIndicator} from '../UI/LoadingIndicator';
 
-export const Editor = () => {
+export const Editor: FC<{navigate: (data: any) => void}> = ({navigate}) => {
   const [value, setValue] = useState('');
-  const {mutate, isLoading} = useCreateAnalysis();
+  const {mutate, isLoading, isSuccess, data: details} = useCreateAnalysis();
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate(details.data);
+    }
+  }, [isSuccess]);
 
   if (isLoading) {
     return <LoadingIndicator />;
@@ -44,10 +50,10 @@ const styles = StyleSheet.create({
     padding: 10,
     height: '70%',
     marginTop: 20,
-    borderWidth: 1,
-    borderRadius: 4,
+    borderRadius: 15,
     borderStyle: 'solid',
     borderColor: 'grey',
+    backgroundColor: 'white',
   },
   editor: {
     marginTop: 15,
@@ -56,12 +62,12 @@ const styles = StyleSheet.create({
     height: '60%',
   },
   button: {
-    backgroundColor: colors.textColor,
+    backgroundColor: colors.buttonColor,
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 15,
     justifyContent: 'center',
-    padding: 5,
-    borderRadius: 4,
+    padding: 10,
+    borderRadius: 20,
   },
   textButton: {
     color: 'white',

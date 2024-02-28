@@ -14,6 +14,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import TabsNavigator from './navigation/TabsNavigator';
 import {QueryClientProvider} from 'react-query';
 import {queryClient} from './api/queryClient';
+import { StackNavigator } from './navigation/StackNavigator';
 
 if (__DEV__) {
   // @ts-ignore
@@ -22,14 +23,10 @@ if (__DEV__) {
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
   return (
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
-        <TabsNavigator />
+       <StackNavigator/>
       </NavigationContainer>
     </QueryClientProvider>
   );
